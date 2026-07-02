@@ -935,7 +935,7 @@ describe("getSelectedText", () => {
       container: document.getElementById("editor")!,
       initialValue: "hello world",
     });
-    editor.setSelection({ anchor: 0, head: 5 });
+    editor.setSelection(0, 5);
     expect(editor.getSelectedText()).toBe("hello");
     editor.destroy();
   });

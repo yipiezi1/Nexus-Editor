@@ -186,6 +186,8 @@ export interface SetDocumentOptions {
 export interface EditorAPI {
   getDocument(): string;
   getAst(): Root;
+  /** Returns the currently selected text. Returns empty string if nothing is selected. */
+  getSelectedText(): string;
   getTableOfContents(): TocEntry[];
   exportHTML(): string;
   setTheme(theme: import("./theme").NexusTheme): void;
