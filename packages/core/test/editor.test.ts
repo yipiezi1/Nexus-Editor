@@ -918,3 +918,25 @@ describe("createEditor — DOM event hook layer", () => {
     editor.destroy();
   });
 });
+
+
+describe("getSelectedText", () => {
+  it("returns empty string when nothing is selected", () => {
+    const editor = createEditor({
+      container: document.getElementById("editor")!,
+      initialValue: "hello world",
+    });
+    expect(editor.getSelectedText()).toBe("");
+    editor.destroy();
+  });
+
+  it("returns selected text", () => {
+    const editor = createEditor({
+      container: document.getElementById("editor")!,
+      initialValue: "hello world",
+    });
+    editor.setSelection({ anchor: 0, head: 5 });
+    expect(editor.getSelectedText()).toBe("hello");
+    editor.destroy();
+  });
+});
